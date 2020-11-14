@@ -10,7 +10,7 @@ Depending on your configuration, you may have to prepend the `docker` command wi
 
 ```bash
 # If you want the container to persist after exiting, remove the --rm option.
-docker run -i -p 9000:9000/tcp -t --rm protecto/bioweb r=l
+docker run -i -p 9000:9000/tcp -t --rm krystiancha/bioweb r=l
 ```
 
 Then, browse to: http://localhost:9000
@@ -19,16 +19,16 @@ Then, browse to: http://localhost:9000
 
 ```bash
 # If you want the container to persist after exiting, remove the --rm option.
-docker run -i -p 9000:9000/tcp -t --rm protecto/bioweb
+docker run -i -p 9000:9000/tcp -t --rm krystiancha/bioweb
 # or
-docker run -i -p 9000:9000/tcp -t --rm protecto/bioweb -h
+docker run -i -p 9000:9000/tcp -t --rm krystiancha/bioweb -h
 ```
 
 ### Try from a shell
 
 ```bash
 # If you want the container to persist after exiting, remove the --rm option.
-docker run -i -p 9000:9000/tcp -t --entrypoint /bin/bash --rm protecto/bioweb
+docker run -i -p 9000:9000/tcp -t --entrypoint /bin/bash --rm krystiancha/bioweb
 ```
 
 Then, in the container:
@@ -45,16 +45,16 @@ This image is build on the `bioweb` image. It includes `nano`, `vim` and `emacs`
 
 ```bash
 # If you want the container to persist after exiting, remove the --rm option.
-docker run -i -p 9000:9000/tcp -t --entrypoint /bin/bash --rm protecto/bioweb:dev
+docker run -i -p 9000:9000/tcp -t --entrypoint /bin/bash --rm krystiancha/bioweb:dev
 ```
 
 ## Building
 
-During the buid process Boost is built. You can decide how many threads will the compiler use by setting `boost_build_threads` as can be seen below. `6` or `7` should be safe value for a system with 8 G of memory. If you tag the image `bioweb` instead of `protecto/bioweb` (as shown below), remember to refer to it as `bioweb` when using the image.
+During the buid process Boost is built. You can decide how many threads will the compiler use by setting `boost_build_threads` as can be seen below. `6` or `7` should be safe value for a system with 8 G of memory. If you tag the image `bioweb` instead of `krystiancha/bioweb` (as shown below), remember to refer to it as `bioweb` when using the image.
 
 ```bash
-git clone https://github.com/protecto/docker-bioweb.git
-cd docker-bioweb
+git clone https://git.sr.ht/~krystiancha/bioweb-docker
+cd bioweb-docker
 
 # bioweb
 docker build -t bioweb --build-arg boost_build_threads=7 bioweb
